@@ -3,7 +3,7 @@
   "description": "Storefront",
   "scripts": {
     "predev": "yarn build",
-    "dev": "lng serve",
+    "dev": "lng dev",
     "build": "lng build"
   },
   "dependencies": {
