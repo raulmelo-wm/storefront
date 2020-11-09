@@ -1,7 +1,15 @@
 {
   "name": "com.warner.app.StorefrontDemo",
   "description": "Storefront",
+  "scripts": {
+    "predev": "yarn build",
+    "dev": "lng serve",
+    "build": "lng build"
+  },
   "dependencies": {
     "@lightningjs/sdk": "^3.1.1"
+  },
+  "devDependencies": {
+    "@lightningjs/cli": "rdkcentral/Lightning-CLI"
   }
 }
