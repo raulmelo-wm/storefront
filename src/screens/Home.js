@@ -2,6 +2,10 @@ import { Lightning } from "@lightningjs/sdk";
 
 export class Home extends Lightning.Component {
   static _template() {
-    return {};
+    return {
+      text: { text: "Home page :)", fontFace: "Roboto" },
+      x: 50,
+      y: 50,
+    };
   }
 }
