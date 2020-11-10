@@ -55,15 +55,19 @@ export default class App extends Lightning.Component {
 
         $enter() {
           this.menuRef.patch({
-            x: 0,
-            alpha: 1,
+            smooth: {
+              x: 0,
+              alpha: 1,
+            },
           });
         }
 
         $exit() {
           this.menuRef.patch({
-            x: -380,
-            alpha: 0,
+            smooth: {
+              x: -380,
+              alpha: 0,
+            },
           });
         }
       },

@@ -5,7 +5,7 @@ export class Home extends Lightning.Component {
     return {
       text: { text: "Home Page", fontFace: "Roboto" },
       x: 380 + 50,
-      y: 50,
+      y: 40,
       alpha: 0,
     };
   }

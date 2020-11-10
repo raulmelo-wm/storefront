@@ -4,7 +4,12 @@ import { Color } from "../../utils/Color";
 export class MenuItem extends Lightning.Component {
   static _template() {
     return {
-      text: { text: "", fontFace: "Roboto", fontSize: 50 },
+      text: {
+        text: "",
+        fontFace: "Roboto",
+        fontSize: 40,
+        mount: 0.5,
+      },
     };
   }
 
@@ -21,9 +26,17 @@ export class MenuItem extends Lightning.Component {
   }
 
   _focus() {
-    this.setSmooth("color", Color.hexToArgb("#cccccc"));
+    this.patch({
+      smooth: {
+        color: Color.hexToArgb("#ffffff", 0.5),
+      },
+    });
   }
   _unfocus() {
-    this.setSmooth("color", Color.hexToArgb("#ffffff"));
+    this.patch({
+      smooth: {
+        color: Color.hexToArgb("#ffffff"),
+      },
+    });
   }
 }

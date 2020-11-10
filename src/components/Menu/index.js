@@ -1,4 +1,5 @@
 import { Lightning } from "@lightningjs/sdk";
+
 import { MenuItem } from "../MenuItem";
 import { Color } from "../../utils/Color";
 
@@ -16,35 +17,12 @@ export class Menu extends Lightning.Component {
     return {
       rect: true,
       h: 1080,
-      w: 380,
+      w: 320,
       color: Color.rgbaToArgb(68, 132, 160, 0.2),
       Items: {
         x: 40,
       },
     };
-  }
-
-  static _states() {
-    return [
-      class Opened extends this {
-        $enter() {
-          this.patch({
-            smooth: {
-              x: 0,
-              alpha: 1,
-            },
-          });
-        }
-        $exit() {
-          this.patch({
-            smooth: {
-              x: -380,
-              alpha: 0,
-            },
-          });
-        }
-      },
-    ];
   }
 
   _setup() {
@@ -60,7 +38,8 @@ export class Menu extends Lightning.Component {
       type: MenuItem,
       action: item.action,
       label: item.label,
-      y: index * 90,
+      // prettier-ignore
+      y: (index * 90) + 30,
     }));
   }
 
