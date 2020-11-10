@@ -42,6 +42,57 @@ export default class App extends Lightning.Component {
           return this.menuRef;
         }
       },
+
+      class Home extends this {
+        $enter() {
+          this.patch({
+            smooth: {
+              alpha: 1,
+            },
+          });
+        }
+        $exit() {
+          this.patch({
+            smooth: {
+              alpha: 0,
+            },
+          });
+        }
+      },
+
+      class Profile extends this {
+        $enter() {
+          this.patch({
+            smooth: {
+              alpha: 1,
+            },
+          });
+        }
+        $exit() {
+          this.patch({
+            smooth: {
+              alpha: 0,
+            },
+          });
+        }
+      },
+
+      class Movies extends this {
+        $enter() {
+          this.patch({
+            smooth: {
+              alpha: 1,
+            },
+          });
+        }
+        $exit() {
+          this.patch({
+            smooth: {
+              alpha: 0,
+            },
+          });
+        }
+      },
     ];
   }
 
