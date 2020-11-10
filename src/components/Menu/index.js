@@ -17,7 +17,7 @@ export class Menu extends Lightning.Component {
       rect: true,
       h: 1080,
       w: 380,
-      color: Color.rgbaToArgb(15, 1, 94, 0.5),
+      color: Color.rgbaToArgb(68, 132, 160, 0.2),
       Items: {
         x: 40,
       },

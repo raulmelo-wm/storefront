@@ -17,8 +17,8 @@ export default class App extends Lightning.Component {
       rect: true,
       w: 1920,
       h: 1080,
-      colorLeft: Color.rgbaToArgb(15, 1, 94),
-      colorRight: Color.rgbaToArgb(123, 22, 255, 0.75),
+      colorLeft: Color.rgbaToArgb(15, 32, 39),
+      colorRight: Color.rgbaToArgb(32, 58, 67),
 
       Menu: {
         type: Menu,
