@@ -4,9 +4,9 @@ import { Color } from "../../utils/Color";
 
 export class Menu extends Lightning.Component {
   menuItems = [
-    { label: "Home Page", action: "home" },
-    { label: "Movies Page", action: "movies" },
-    { label: "Profile Page", action: "profile" },
+    { label: "Home Page", action: "Home" },
+    { label: "Movies Page", action: "Movies" },
+    { label: "Profile Page", action: "Profile" },
   ];
 
   itemsRef = null;
@@ -80,6 +80,7 @@ export class Menu extends Lightning.Component {
 
   _handleRight() {
     this.close();
+    this.signal("onMenuClose", this.menuItems[this.activeItemIndex]);
   }
 
   _handleLeft() {

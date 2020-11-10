@@ -7,6 +7,8 @@ export default class App extends Lightning.Component {
   isMenuOpen = false;
   menuRef = null;
   homeRef = null;
+  profileRef = null;
+  moviesRef = null;
 
   static getFonts() {
     return [{ family: "Roboto", url: Utils.asset("fonts/Roboto-Regular.ttf") }];
@@ -20,9 +22,6 @@ export default class App extends Lightning.Component {
       colorLeft: Color.rgbaToArgb(15, 32, 39),
       colorRight: Color.rgbaToArgb(32, 58, 67),
 
-      Menu: {
-        type: Menu,
-      },
       Profile: {
         type: Profile,
       },
@@ -31,6 +30,18 @@ export default class App extends Lightning.Component {
       },
       Movies: {
         type: Movies,
+      },
+
+      // It needs to stay lower than everyone to be render on top of the others
+      Menu: {
+        type: Menu,
+        signals: {
+          /**
+           * This bind the class method onMenuClose and enables
+           * receiving signals
+           */
+          onMenuClose: true,
+        },
       },
     };
   }
@@ -44,53 +55,44 @@ export default class App extends Lightning.Component {
       },
 
       class Home extends this {
-        $enter() {
-          this.patch({
-            smooth: {
-              alpha: 1,
-            },
-          });
+        _getFocused() {
+          return this.homeRef;
         }
+
+        $enter() {
+          this.homeRef.setSmooth("alpha", 1);
+        }
+
         $exit() {
-          this.patch({
-            smooth: {
-              alpha: 0,
-            },
-          });
+          this.homeRef.setSmooth("alpha", 0);
         }
       },
 
       class Profile extends this {
-        $enter() {
-          this.patch({
-            smooth: {
-              alpha: 1,
-            },
-          });
+        _getFocused() {
+          return this.profileRef;
         }
+
+        $enter() {
+          this.profileRef.setSmooth("alpha", 1);
+        }
+
         $exit() {
-          this.patch({
-            smooth: {
-              alpha: 0,
-            },
-          });
+          this.profileRef.setSmooth("alpha", 0);
         }
       },
 
       class Movies extends this {
-        $enter() {
-          this.patch({
-            smooth: {
-              alpha: 1,
-            },
-          });
+        _getFocused() {
+          return this.moviesRef;
         }
+
+        $enter() {
+          this.moviesRef.setSmooth("alpha", 1);
+        }
+
         $exit() {
-          this.patch({
-            smooth: {
-              alpha: 0,
-            },
-          });
+          this.moviesRef.setSmooth("alpha", 0);
         }
       },
     ];
@@ -99,6 +101,8 @@ export default class App extends Lightning.Component {
   _setup() {
     this.menuRef = this.tag("Menu");
     this.homeRef = this.tag("Home");
+    this.profileRef = this.tag("Profile");
+    this.moviesRef = this.tag("Movies");
   }
 
   _init() {
@@ -111,5 +115,14 @@ export default class App extends Lightning.Component {
 
   _getFocused() {
     return this.menuRef;
+  }
+
+  _handleLeft() {
+    this._setState("Menu");
+  }
+
+  /* Custom Methods */
+  onMenuClose(menuItem) {
+    this._setState(menuItem.action);
   }
 }

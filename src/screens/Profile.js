@@ -6,6 +6,7 @@ export class Profile extends Lightning.Component {
       text: { text: "Profile Page", fontFace: "Roboto" },
       x: 380 + 50,
       y: 50,
+      alpha: 0,
     };
   }
 }
