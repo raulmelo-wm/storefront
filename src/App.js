@@ -57,16 +57,10 @@ export default class App extends Lightning.Component {
   }
 
   _handleUp() {
-    console.log("prev isMenuOpen", this.isMenuOpen);
     this.isMenuOpen = !this.isMenuOpen;
-    console.log("next isMenuOpen", this.isMenuOpen);
-  }
-
-  _handleRight() {
-    this.isMenuOpen = false;
   }
 
   _getFocused() {
-    // return this.isMenuOpen ? this.menuRef : this;
+    return this.menuRef;
   }
 }

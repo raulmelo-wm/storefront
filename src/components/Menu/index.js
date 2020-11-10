@@ -78,6 +78,14 @@ export class Menu extends Lightning.Component {
     this.activeItemIndex++;
   }
 
+  _handleRight() {
+    this.close();
+  }
+
+  _handleLeft() {
+    this.open();
+  }
+
   _getFocused() {
     return this.itemsRef.children[this.activeItemIndex];
   }
