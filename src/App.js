@@ -9,19 +9,17 @@ export default class App extends Lightning.Component {
   homeRef = null;
 
   static getFonts() {
-    return [
-      { family: "Regular", url: Utils.asset("fonts/Roboto-Regular.ttf") },
-    ];
+    return [{ family: "Roboto", url: Utils.asset("fonts/Roboto-Regular.ttf") }];
   }
 
   static _template() {
     return {
-      Background: {
-        w: 1920,
-        h: 1080,
-        color: Color.hexToArgb("#fbb03b"),
-        src: Utils.asset("images/background.png"),
-      },
+      rect: true,
+      w: 1920,
+      h: 1080,
+      colorLeft: Color.rgbaToArgb(15, 1, 94),
+      colorRight: Color.rgbaToArgb(123, 22, 255, 0.75),
+
       Menu: {
         type: Menu,
       },
