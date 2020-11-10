@@ -1,4 +1,5 @@
 import { Lightning } from "@lightningjs/sdk";
+import { Color } from "../../utils/Color";
 
 export class MenuItem extends Lightning.Component {
   static _template() {
@@ -20,9 +21,9 @@ export class MenuItem extends Lightning.Component {
   }
 
   _focus() {
-    this.setSmooth("color", 0xffcccccc);
+    this.setSmooth("color", Color.hexToArgb("#cccccc"));
   }
   _unfocus() {
-    this.setSmooth("color", 0xffffffff);
+    this.setSmooth("color", Color.hexToArgb("#ffffff"));
   }
 }
