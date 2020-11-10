@@ -52,6 +52,20 @@ export default class App extends Lightning.Component {
         _getFocused() {
           return this.menuRef;
         }
+
+        $enter() {
+          this.menuRef.patch({
+            x: 0,
+            alpha: 1,
+          });
+        }
+
+        $exit() {
+          this.menuRef.patch({
+            x: -380,
+            alpha: 0,
+          });
+        }
       },
 
       class Home extends this {
